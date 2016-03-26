@@ -1,0 +1,8 @@
+version: '2'
+services:
+  salt:
+    build: salt-master
+    privileged: true
+  saltminion:
+    build: salt-minion
+    privileged: true
