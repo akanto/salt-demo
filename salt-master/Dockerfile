@@ -18,19 +18,23 @@ ENTRYPOINT ["/usr/sbin/init"]
 
 
 RUN yum install -y epel-release && yum clean all
+#RUN yum install -y python-pip && yum clean all
+#RUN pip install cherrypy
 RUN yum install -y salt-master salt-api net-tools && yum clean all
 COPY config/master /etc/salt/master
 RUN systemctl enable salt-master
 RUN systemctl enable salt-api
 
-#RUN yum install -y nginx wget unzip && yum clean all
+RUN yum install -y nginx wget unzip && yum clean all
 ##ADD https://github.com/Lothiraldan/saltpad/releases/download/v0.2/dist.zip /opt/dist.zip
-#COPY dist-v0.2.zip /opt/dist.zip
-#RUN unzip /opt/dist.zip -d /opt/saltpad
-#COPY config/settings.json /opt/saltpad/settings.json
+COPY dist-v0.2.zip /opt/dist.zip
+RUN unzip /opt/dist.zip -d /opt/saltpad
+COPY config/settings.json /opt/saltpad/settings.json
 #
-#COPY config/nginx.conf /etc/nginx/nginx.conf
-#RUN systemctl enable nginx
+COPY config/nginx.conf /etc/nginx/nginx.conf
+RUN systemctl enable nginx
 
 # salt-key -L
 # salt '*' test.ping
+
+RUN export NEW_USER=saltuser && adduser ${NEW_USER} && usermod -G wheel ${NEW_USER} && echo "${NEW_USER}:saltpass"| chpasswd

@@ -738,7 +738,15 @@ auto_accept: True
 # Which returner(s) will be used for minion's result:
 #return: mysql
 
+external_auth:
+  pam:
+    saltuser:
+      - .*
+      - '@wheel'   # to allow access to all wheel modules
+      - '@runner'  # to allow access to all runner modules
+      - '@jobs'    # to allow access to the jobs runner and/or wheel module
+
 rest_cherrypy:
   port: 8000
-  webhook_disable_auth: True
   disable_ssl: True
+  debug: True
