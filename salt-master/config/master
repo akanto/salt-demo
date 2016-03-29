@@ -737,3 +737,8 @@ auto_accept: True
 ############################################
 # Which returner(s) will be used for minion's result:
 #return: mysql
+
+rest_cherrypy:
+  port: 8000
+  webhook_disable_auth: True
+  disable_ssl: True

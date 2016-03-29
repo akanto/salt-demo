@@ -3,6 +3,9 @@ services:
   salt:
     build: salt-master
     privileged: true
+    ports:
+      - 80:80
+      - 8000:8000
   saltminion:
     build: salt-minion
     privileged: true
