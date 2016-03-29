@@ -6,6 +6,8 @@ services:
     ports:
       - 80:80
       - 8000:8000
+    volumes:
+      - ./salt-master/salt:/srv/salt
   saltminion:
     build: salt-minion
     privileged: true
