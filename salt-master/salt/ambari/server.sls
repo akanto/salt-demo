@@ -1,9 +1,7 @@
-/etc/yum.repos.d/ambari.repo:
-  file.managed:
-    - source: salt://ambari/files/ambari.repo
+include:
+  - ambari.base
 
-
-ambari-agent:
+ambari-server:
   pkg.latest:
     - require:
       - file: /etc/yum.repos.d/ambari.repo
