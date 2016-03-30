@@ -4,6 +4,6 @@ include:
 ambari-server:
   pkg.latest:
     - require:
-      - file: /etc/yum.repos.d/ambari.repo
+      - sls: ambari.base
   service.running:
     - enable: True
