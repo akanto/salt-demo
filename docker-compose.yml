@@ -8,6 +8,7 @@ services:
       - 8000:8000
     volumes:
       - ./salt-master/salt:/srv/salt
+      - ./salt-master/pillar:/srv/pillar
   saltminion:
     build: salt-minion
     privileged: true
