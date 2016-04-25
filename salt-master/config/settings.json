@@ -1,26 +1,8 @@
 {
   "API_URL": "192.168.99.100:8000",
   "SECURE_HTTP": false,
-  "templates": {
-    "basic": {
-      "description": "Basic template",
-      "matcher": "glob",
-      "target": "*",
-      "moduleFunction": "test.fib",
-      "arguments": {
-        "num": 10
-      }
-    },
-
-    "version": {
-      "description": "Basic version",
-      "matcher": "glob",
-      "target": "Celeste",
-      "moduleFunction": "test.version",
-      "arguments": {}
-    }
-  },
+  "templates": {},
   "EAUTH": "pam",
   "FLAVOUR": "rest_cherrypy",
-  "PATH_PREFIX": "/"
+  "PATH_PREFIX": "/saltpad/"
 }

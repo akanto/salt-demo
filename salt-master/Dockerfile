@@ -25,14 +25,12 @@ COPY config/master /etc/salt/master
 RUN systemctl enable salt-master
 RUN systemctl enable salt-api
 
-RUN yum install -y nginx wget unzip && yum clean all
+RUN yum install -y wget unzip && yum clean all
 ###ADD https://github.com/Lothiraldan/saltpad/releases/download/v0.2/dist.zip /opt/dist.zip
 COPY dist-v0.3.1.zip /opt/dist.zip
 RUN unzip /opt/dist.zip -d /opt/saltpad
-COPY config/settings.json /opt/saltpad/dist/static/settings.json
-##
-COPY config/nginx.conf /etc/nginx/nginx.conf
-RUN systemctl enable nginx
+RUN mv /opt/saltpad/dist /code
+COPY config/settings.json /code/static/settings.json
 
 COPY salt /srv/salt
 RUN mkdir -p /srv/pillar

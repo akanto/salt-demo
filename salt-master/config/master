@@ -750,3 +750,7 @@ rest_cherrypy:
   port: 8000
   disable_ssl: True
   debug: True
+  static: /code/static
+  static_path: /static
+  app: /code/index.html
+  app_path: /saltpad
