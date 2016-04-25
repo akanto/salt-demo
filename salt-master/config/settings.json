@@ -4,5 +4,5 @@
   "templates": {},
   "EAUTH": "pam",
   "FLAVOUR": "rest_cherrypy",
-  "PATH_PREFIX": "/saltpad/"
+  "PATH_PREFIX": "/saltpad"
 }
