@@ -21,5 +21,6 @@
     }
   },
   "EAUTH": "pam",
-  "FLAVOUR": "rest_cherrypy"
+  "FLAVOUR": "rest_cherrypy",
+  "PATH_PREFIX": "/"
 }
