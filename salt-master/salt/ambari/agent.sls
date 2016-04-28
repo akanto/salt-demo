@@ -17,10 +17,13 @@ ambari-agent:
     - source: salt://ambari/systemd/ambari-agent.service
 
 start-ambari-agent:
+  module.wait:
+    - name: service.systemctl_reload
+    - watch:
+      - file: /etc/systemd/system/ambari-agent.service
   service.running:
     - enable: True
     - name: ambari-agent
     - watch:
         - pkg: ambari-agent
-        - file: /opt/ambari-agent/ambari-agent-init.sh
         - file: /etc/systemd/system/ambari-agent.service

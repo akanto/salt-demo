@@ -11,9 +11,6 @@ ambari-server:
     - require:
       - sls: ambari.base
 
-#/etc/rc.d/init.d/ambari-server:
-#  file.absent
-
 /opt/ambari-server/ambari-server-init.sh:
   file.managed:
     - makedirs: True
@@ -25,10 +22,13 @@ ambari-server:
     - source: salt://ambari/systemd/ambari-server.service
 
 start-ambari-server:
+  module.wait:
+    - name: service.systemctl_reload
+    - watch:
+      - file: /etc/systemd/system/ambari-server.service
   service.running:
     - enable: True
     - name: ambari-server
     - watch:
-        - pkg: ambari-server
-        - file: /opt/ambari-server/ambari-server-init.sh
-        - file: /etc/systemd/system/ambari-server.service
+       - pkg: ambari-server
+       - file: /etc/systemd/system/ambari-server.service
