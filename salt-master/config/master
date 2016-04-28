@@ -747,7 +747,7 @@ external_auth:
       - '@jobs'    # to allow access to the jobs runner and/or wheel module
 
 rest_cherrypy:
-  port: 8000
+  port: 3080
   disable_ssl: True
   debug: True
   static: /code/static
