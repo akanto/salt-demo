@@ -6,9 +6,6 @@ ambari-agent:
     - require:
       - sls: ambari.base
 
-/etc/rc.d/init.d/ambari-server
-  file.absent
-
 /opt/ambari-agent/ambari-agent-init.sh:
   file.managed:
     - makedirs: True
