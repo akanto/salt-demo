@@ -1,7 +1,9 @@
 {
+  {% if is_server %}
   "bootstrap_expect": 1,
   "server": true,
   "ui": true,
+  {% endif %}
   "advertise_addr": "{{ advertise_addr }}",
   "data_dir": "/etc/cloudbreak/consul",
   "client_addr": "0.0.0.0",
@@ -23,5 +25,5 @@
     "max_stale": "5m",
     "node_ttl": "1m"
   },
-  "node_name": "host-10-0-0-24"
+  "node_name": "{{ node_name }}"
 }

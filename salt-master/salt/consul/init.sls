@@ -18,4 +18,6 @@
     - template: jinja
     - context:
         advertise_addr: {{ consul.advertise_addr }}
+        is_server: {{ consul.is_server }}
+        node_name: {{ consul.node_name }}
 
