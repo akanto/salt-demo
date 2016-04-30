@@ -1,6 +1,6 @@
 version: '2'
 services:
-  salt:
+  masternode:
     build: salt-master
     privileged: true
     ports:
