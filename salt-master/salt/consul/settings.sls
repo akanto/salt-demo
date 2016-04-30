@@ -1,12 +1,10 @@
 
-{%- set advertise_addr = salt['grains.get']('consul:advertise_addr', '') %}
+{%- set advertise_addr = salt['grains.get']('consul:advertise_addr') %}
 {%- set is_server = salt['grains.get']('consul:server', 'False') %}
-{%- set node_name = salt['grains.get']('consul:node_name', '') %}
-{%- set recursors = salt['grains.get']('consul:recursors', '') %}
+{%- set node_name = salt['grains.get']('consul:node_name') %}
+{%- set recursors = salt['grains.get']('consul:recursors', '8.8.8.8') %}
 {%- set bootstrap_expect = salt['pillar.get']('consul:bootstrap_expect', 1) %}
-{%- set retry_join = salt['pillar.get']('consul:retry_join', '') %}
-
-
+{%- set retry_join = salt['pillar.get']('consul:retry_join') %}
 
 {%- set consul = {} %}
 {%- do consul.update({
