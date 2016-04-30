@@ -1,7 +1,6 @@
 base:
-  'roles:consul_server':
-    - match: grain
-    - debug.all
+  '*':
+    - consul.init
 
   'roles:ambari_server':
     - match: grain

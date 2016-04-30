@@ -1,0 +1,27 @@
+{
+  "bootstrap_expect": 1,
+  "server": true,
+  "ui": true,
+  "advertise_addr": "{{ advertise_addr }}",
+  "data_dir": "/etc/cloudbreak/consul",
+  "client_addr": "0.0.0.0",
+  "recursors": [
+    "10.0.0.2",
+    "8.8.8.8"
+  ],
+  "disable_update_check": true,
+  "retry_join": [
+
+  ],
+  "ports": {
+    "DNS": 53,
+    "HTTP": 8500,
+    "HTTPS": -1
+  },
+  "dns_config": {
+    "allow_stale": true,
+    "max_stale": "5m",
+    "node_ttl": "1m"
+  },
+  "node_name": "host-10-0-0-24"
+}
