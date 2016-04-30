@@ -21,7 +21,7 @@ RUN yum install -y epel-release && yum clean all
 #RUN yum install -y python-pip && yum clean all
 #RUN pip install cherrypy
 RUN yum install -y salt-master salt-api && yum clean all
-COPY config/master /etc/salt/master
+COPY config/custom.conf /etc/salt/master.d/custom.conf
 RUN systemctl enable salt-master
 RUN systemctl enable salt-api
 
