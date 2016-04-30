@@ -1,20 +1,13 @@
 {
-  {% if is_server %}
-  "bootstrap_expect": 1,
+  {% if is_server %}"bootstrap_expect": {{ bootstrap_expect }},
   "server": true,
-  "ui": true,
-  {% endif %}
+  "ui": true, {% endif %}
   "advertise_addr": "{{ advertise_addr }}",
   "data_dir": "/etc/cloudbreak/consul",
   "client_addr": "0.0.0.0",
-  "recursors": [
-    "10.0.0.2",
-    "8.8.8.8"
-  ],
+  "recursors": {{ recursors | json }},
   "disable_update_check": true,
-  "retry_join": [
-
-  ],
+  "retry_join": {{ retry_join | json }},
   "ports": {
     "DNS": 53,
     "HTTP": 8500,
