@@ -1,3 +1,4 @@
 base:
   '*':
-    - ambari.base
+    - ambari.repo
+

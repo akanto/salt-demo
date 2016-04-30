@@ -4,7 +4,7 @@ services:
     build: salt-master
     privileged: true
     ports:
-      - 8000:8000
+      - 3080:3080
     volumes:
       - ./salt-master/salt:/srv/salt
       - ./salt-master/pillar:/srv/pillar

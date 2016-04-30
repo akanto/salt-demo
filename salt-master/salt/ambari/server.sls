@@ -1,5 +1,5 @@
 include:
-  - ambari.base
+  - ambari.repo
 
 haveged:
   pkg.installed: []
@@ -9,7 +9,7 @@ haveged:
 ambari-server:
   pkg.latest:
     - require:
-      - sls: ambari.base
+      - sls: ambari.repo
 
 /opt/ambari-server/ambari-server-init.sh:
   file.managed:

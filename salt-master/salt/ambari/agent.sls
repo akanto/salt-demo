@@ -1,10 +1,10 @@
 include:
-  - ambari.base
+  - ambari.repo
 
 ambari-agent:
   pkg.latest:
     - require:
-      - sls: ambari.base
+      - sls: ambari.repo
 
 /opt/ambari-agent/ambari-agent-init.sh:
   file.managed:
