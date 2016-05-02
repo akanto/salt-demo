@@ -1,6 +1,4 @@
 consul:
-  bootstrap_expect: 3
+  bootstrap_expect: 1
   retry_join:
-    - 10.0.0.1
-    - 10.0.0.2
-    - 10.0.0.3
+    - 172.18.0.3
