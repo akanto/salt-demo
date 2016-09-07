@@ -1,5 +1,4 @@
 base:
   '*':
-    - ambari.repo
-    - consul.init
+    - template-example
 
