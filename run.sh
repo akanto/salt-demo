@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker ps -qa |xargs docker rm -f
+docker ps --format "{{.Names}}" | grep saltdemo |xargs docker rm -f
 docker-compose build
 docker-compose up -d
 docker-compose scale saltminion=3
