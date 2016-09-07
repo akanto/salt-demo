@@ -1,4 +1,5 @@
 base:
   '*':
     - debug
+    - tree
 
