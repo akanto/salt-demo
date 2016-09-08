@@ -1,6 +1,7 @@
 version: '2'
 services:
   masternode:
+    hostname: saltdemo_masternode_1
     build: salt-master
     privileged: true
     ports:
@@ -11,3 +12,5 @@ services:
   saltminion:
     build: salt-minion
     privileged: true
+    ports:
+      - 80
