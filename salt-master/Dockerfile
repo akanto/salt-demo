@@ -14,6 +14,8 @@ VOLUME [ "/sys/fs/cgroup" ]
 ENTRYPOINT ["/usr/sbin/init"]
 
 
+COPY repo/saltstack.repo /etc/yum.repos.d/saltstack.repo
+
 RUN yum install -y epel-release && yum clean all
 RUN yum install -y salt-master salt-api && yum clean all
 
